@@ -33,21 +33,24 @@ class Crawler:
         self._url_text.pack(side=RIGHT, anchor="e", fill="x", pady=3, padx=3, expand=True)
     
     def _sarch(self, event):
-      _search = self._url_text.get()
-      if _search != "":
-        _url = get_search_url(_search)
-        _results = get_search_tree(_url)
-        res = get_next(_results)
-        while(res != None):
-          _new = Noticia(self._video_frame.scrollable_frame, res[0], res[1], res[2])
-          _new.bind("<Button-1>", self._open_link)
-          _new.pack(padx=5, fill="x", pady=2)
-          self._root.update()
-          res = get_next(res[3])
+        for child in self._video_frame.scrollable_frame.winfo_children():
+            child.destroy()
+        _search = self._url_text.get()
+        if _search != "":
+            _url = get_search_url(_search)
+            _results = get_search_tree(_url)
+            res = get_next(_results)
+            while(res != None):
+                _new = Noticia(self._video_frame.scrollable_frame, res[0], res[1], res[2])
+                _new.bind("<Button-1>", self._open_link)
+                _new.pack(padx=5, fill="x", pady=2)
+                self._root.update()
+                res = get_next(res[3])
 
     def _open_link(self, event):
-      webbrowser.open_new(event.widget.url)
-    
+        
+        webbrowser.open_new(event.widget.url)
+        print(event.widget.url)
     def start(self):
         self._root.mainloop()
 
