@@ -17,7 +17,7 @@ def parse_g1_new(new):
   
   return (titulo.strip(), url, new_image, new)
 
-def parse_r7_new(new):
+def parse_fsp_new(new):
   try:
     new_image = new.findChildren("img")[0].get("src")
     content_index = 1
@@ -50,13 +50,13 @@ def get_next_g1(res: (NavigableString | BeautifulSoup)):
     return parse_g1_new(noticia)
   return None
 
-def get_next_r7(res: (NavigableString | BeautifulSoup)):
+def get_next_fsp(res: (NavigableString | BeautifulSoup)):
   if (isinstance(res, BeautifulSoup)): 
     noticia = res.find("li", class_="c-headline")
   elif (isinstance(res, NavigableString) or isinstance(res, Tag)):
     noticia = res.find_next("li", class_="c-headline")
   if (noticia != None):
-    return parse_r7_new(noticia)
+    return parse_fsp_new(noticia)
   return None
 
 

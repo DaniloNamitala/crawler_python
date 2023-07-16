@@ -41,7 +41,7 @@ class Crawler:
             _results = get_search_tree(_url[0])
             _results2 = get_search_tree(_url[1])
             res = get_next_g1(_results)
-            res2 = get_next_r7(_results2)
+            res2 = get_next_fsp(_results2)
             while(res != None):
                 _new = Noticia(self._video_frame.scrollable_frame, res[0], res[1], res[2])
                 _new.bind("<Button-1>", self._open_link)
@@ -54,7 +54,7 @@ class Crawler:
                 _new.bind("<Button-1>", self._open_link)
                 _new.pack(padx=5, fill="x", pady=2)
                 self._root.update()
-                res2 = get_next_r7(res2[3])
+                res2 = get_next_fsp(res2[3])
 
     def _open_link(self, event):
         
