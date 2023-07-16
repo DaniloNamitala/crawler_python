@@ -38,14 +38,23 @@ class Crawler:
         _search = self._url_text.get()
         if _search != "":
             _url = get_search_url(_search)
-            _results = get_search_tree(_url)
-            res = get_next(_results)
+            _results = get_search_tree(_url[0])
+            _results2 = get_search_tree(_url[1])
+            res = get_next_g1(_results)
+            res2 = get_next_r7(_results2)
             while(res != None):
                 _new = Noticia(self._video_frame.scrollable_frame, res[0], res[1], res[2])
                 _new.bind("<Button-1>", self._open_link)
                 _new.pack(padx=5, fill="x", pady=2)
                 self._root.update()
-                res = get_next(res[3])
+                res = get_next_g1(res[3])
+            
+            while(res2 != None):
+                _new = Noticia(self._video_frame.scrollable_frame, res2[0], res2[1], res2[2])
+                _new.bind("<Button-1>", self._open_link)
+                _new.pack(padx=5, fill="x", pady=2)
+                self._root.update()
+                res2 = get_next_r7(res2[3])
 
     def _open_link(self, event):
         
