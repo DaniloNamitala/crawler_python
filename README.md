@@ -14,11 +14,11 @@
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 ## Desenvolvedores
-- Danilo Aparecido Namitala
-- Pedro Henrique dos Santos
-- Pedro Henrique Maciel Alves
-- Bruno Noberto Gomes
-- Gabriel Marcos Lopes
+- Danilo Aparecido Namitala;
+- Pedro Henrique dos Santos;
+- Pedro Henrique Maciel Alves;
+- Bruno Noberto Gomes;
+- Gabriel Marcos Lopes.
 
 ## Descrição
 Este é um trabalho desenvolvido para a disciplina de Sistemas Distribuídos do curso de Ciência da Computação da [Universidade Federal de Lavras](https://ufla.br/). Neste projeto, desenvolvemos um crawler para buscar informações sobre notícias nos sites G1 e Folha de São Paulo.
