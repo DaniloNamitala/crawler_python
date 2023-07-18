@@ -77,9 +77,11 @@ A tecnologia crawler oferece uma solução eficaz para combater crimes na intern
 
 Ao automatizar a coleta de dados em sites, fóruns e redes sociais, os crawlers fornecem informações valiosas para investigações criminais, permitindo a identificação de criminosos, a coleta de evidências digitais e a tomada de medidas legais apropriadas.
 
-## Tecnologias utilizadas:
+## Tecnologias utilizadas
 - Python 3.10.6
 - Tkinter 8.6
 - BeautifulSoup4 4.12.2
 - Pillow 10.0.0
 
+## Referências
+- https://blog.geekhunter.com.br/como-fazer-um-web-scraping-python/
