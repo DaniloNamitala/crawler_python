@@ -1,7 +1,7 @@
 from tkinter import *
 from Noticia import Noticia
 import webbrowser
-from crawler_g1 import *
+from crawler import *
 from ScrollableFrame import ScrollableFrame
 
 COLOR_BG = "#f2f2f2"
@@ -43,23 +43,23 @@ class Crawler:
             res = get_next_g1(_results)
             res2 = get_next_fsp(_results2)
             while(res != None):
-                _new = Noticia(self._video_frame.scrollable_frame, res[0], res[1], res[2])
+                _new = Noticia(self._video_frame.scrollable_frame, "G1:"+res[0], res[1], res[2])
                 _new.bind("<Button-1>", self._open_link)
                 _new.pack(padx=5, fill="x", pady=2)
                 self._root.update()
                 res = get_next_g1(res[3])
             
             while(res2 != None):
-                _new = Noticia(self._video_frame.scrollable_frame, res2[0], res2[1], res2[2])
+                _new = Noticia(self._video_frame.scrollable_frame, "FSP:"+res2[0], res2[1], res2[2])
                 _new.bind("<Button-1>", self._open_link)
                 _new.pack(padx=5, fill="x", pady=2)
                 self._root.update()
                 res2 = get_next_fsp(res2[3])
 
     def _open_link(self, event):
-        
         webbrowser.open_new(event.widget.url)
         print(event.widget.url)
+        
     def start(self):
         self._root.mainloop()
 

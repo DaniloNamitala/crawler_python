@@ -23,10 +23,15 @@ class Noticia (Frame):
         self._create_title()
 
     def _create_thumb(self):
-        with urlopen(self._image_url) as url:
-          _raw = url.read()
-          url.close() 
-        self._photo_image = PIL.ImageTk.PhotoImage(PIL.Image.open(BytesIO(_raw)).resize((160,90)))
+        try:
+          with urlopen(self._image_url) as url:
+            _raw = url.read()
+            url.close() 
+            image = PIL.Image.open(BytesIO(_raw)).resize((160,90))
+        except:
+          image = PIL.Image.open("not_found.png").resize((160,90))
+        
+        self._photo_image = PIL.ImageTk.PhotoImage(image)
         self._image = Label(self, image=self._photo_image)
         self._image.pack()
         self._image.pack(side=LEFT, padx=5, anchor="w")
